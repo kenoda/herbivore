@@ -1,0 +1,49 @@
+{% extends 'record/base.html' %}
+{% load static %}
+
+{% block content%}
+{# ページヘッダー#}
+<div class="page-header">
+    <div class="center">
+        <img src="{% static "record/images/plant-icon.png" %}" height="50px"/>
+        <div class="page-header-right">
+            <h4>ログイン</h4>
+        </div>
+    </div>
+</div>
+
+
+{# ページ画像部分#}
+<div class="container">
+    <div class="cotainer-img">
+        <div class="container-img-box">
+            <img src="{% static "record/images/plant4.jpg" %}"/>
+        </div>
+        <div class="container-img-box">
+          <img src="{% static "record/images/plant7.jpg" %}"/>
+        </div>
+        <div class="container-img-box">
+            <img src="{% static "record/images/plant5.jpg" %}"/>
+        </div>
+    </div>
+    <div class="container-bottom">
+        <div class="container-bottom-left">
+          <div class="vertical-center">
+              <div class="center">
+                  <img src="{% static "record/images/plant-icon.png" %}" height="50px"/>
+                  <h3><a href="{% url 'record:plant_list' %}">Vegetable type</a></h3>
+              </div>
+          </div>
+        </div>
+        <div class="container-bottom-right">
+            <div class="vertical-center">
+              <div class="center">
+                  <img src="{% static "record/images/cart.png" %}" height="50px"/>
+                  <h3>Seed pack shopr</h3>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

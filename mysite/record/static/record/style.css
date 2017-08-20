@@ -1,0 +1,288 @@
+h1, h1 a{
+  color: #fff;
+}
+
+h2, h3, h4, h5, h6, th, td{
+  color: #9a9a9a;
+}
+
+a{
+  color: #fff;
+}
+
+body{
+  background-color: rgb(58,58,58);
+}
+
+.content{
+  width:100%;
+  margin: auto;
+}
+
+/*トップページのCSS*/
+.container{
+  float: left;
+  width: 100%;
+}
+
+.page-header{
+  float:left;
+  width: 100%;
+  position: relative;
+  border-bottom: solid 3px rgba(43, 39, 39, 0.6)
+}
+
+.page-header:after{
+  content:"";
+  display: block;
+  clear: both;
+}
+
+.main-content{
+    padding-top: 30px;
+    float: left;
+    width: 100%;
+    height: auto;
+}
+
+.center .page-header-right{
+  position: absolute;
+  right: 60px;
+  top:0;
+}
+
+.center .page-header-left{
+    position: absolute;
+    left: 60px;
+    top: 0;
+}
+
+/*中央寄せ、右寄せ、左寄せ*/
+.center{
+  text-align: center;
+}
+
+.right{
+  text-align: right;
+}
+
+.left{
+  text-align: left;
+}
+
+.vertical-center{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  height: 50%;
+}
+
+
+.container-img{
+  float: left;
+  width: 100%;
+}
+
+.container-img:after{
+  content:"";
+  display: block;
+  clear: both;
+}
+
+.container-img-box{
+  float: left;
+  width: calc((100% * 1/3));
+  height: 400px;
+}
+
+.container-img-box:after{
+  content:"";
+  display: block;
+  clear: both;
+}
+
+.container-img-box img{
+  width: 100%;
+  height: 100%;
+}
+
+.container-bottom{
+  width: 100%;
+  height:250px;
+  float: left;
+  position: relative;
+}
+
+.container-bottom-left{
+  width: 49.5%;
+  height: 200px;
+  float: left;
+  position: relative;
+  top:20px;
+  border-right-style: solid;
+  border-right-color: rgba(154,154,154,0.6);
+}
+
+.container-bottom-right{
+  width: 49.5%;
+  height: 200px;
+  float: left;
+  position: relative;
+  top:20px;
+}
+
+
+/*Post_listのところ*/
+.mainChart{
+  width: 100%;
+  max-height: 350px;
+  float: left;
+  position: relative;
+}
+
+.chart-center{
+  position: absolute;
+  height: 170px;
+  top:75px;
+  bottom:0;
+  right:0;
+  left:0;
+  margin: auto;
+}
+
+.chart-center-meter{
+  position: absolute;
+  height: 280px;
+  top:0;
+  bottom:35px;
+  right:0;
+  left:130px;
+  margin: auto;
+}
+
+.mainChart:after{
+  content:"";
+  display: block;
+  clear: both;
+}
+
+.subChart{
+  width:100%;
+  position: relative;
+  float: left;
+}
+
+.subChart::after{
+  content:"";
+  display: block;
+  clear: both;
+}
+
+.bottom-left{
+  width: 50%;
+  height: 200px;
+  position: relative;
+  float: left;
+}
+
+.bottom-right{
+  width: 50%;
+  height: 200px;
+  float: left;
+  position: relative;
+}
+
+.lightChart{
+  width: 85%;
+  height: auto;
+  float: right;
+  position:relative;
+  top:20px;
+  bottom:0;
+  margin: auto;
+  border-right-style: solid;
+  border-right-color: rgba(154,154,154,0.6);
+}
+
+.lightChart-left, .thermoChart-left{
+  width:14%;
+  height:50%;
+  position: absolute;
+  top:0;
+  bottom:30%;
+  margin: auto;
+  float: left;
+}
+
+.thermoChart{
+  width: 85%;
+  float: right;
+  position: relative;
+  top:20px;
+  margin: auto;
+}
+
+
+/*List.htmlページ*/
+.green tr th, .green a{
+  color:rgba(46, 204, 113,1.0);
+  font-size: 20px;
+}
+
+table{
+    width: 80%;
+    height: auto;
+    padding-left: 30px;
+}
+
+table thead tr th{
+    text-align: left;
+    padding-left: 10px;
+    color: rgba(46, 204, 113,1.0);
+}
+
+table tbody tr{
+    text-align: center;
+}
+
+table thead tr{
+    height: 40px;
+}
+
+table tbody tr{
+    background-color: rgb(0, 0, 0);
+    height: 75px;
+}
+
+.border-right{
+    border-right: solid 3px white;
+}
+
+.border-right-green{
+    border-right: solid 3px rgba(46, 204, 113,1.0);
+}
+
+td.tbody-right{
+    background-color: rgb(58,58,58);
+    border-radius: 100px;
+    border: solid;
+    border-color: rgba(46, 204, 113,1.0);
+    width: 90px;
+}
+
+.tbody-right a{
+    color: rgba(46, 204, 113,1.0);
+}
+
+td.tbody-left-border{
+    border-top-left-radius:20px;
+    border-bottom-left-radius:20px;
+}
+
+td.tbody-right-border{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

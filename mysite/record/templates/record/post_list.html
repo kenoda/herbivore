@@ -1,0 +1,197 @@
+{% extends "record/base.html" %}
+{% load static %}
+
+{% block title %}植物の記録の一覧{% endblock title %}
+
+{% block extrahead %}
+<script>
+$(function() {
+  $('.del_confirm').on('click', function () {
+     $("#del_pk").text($(this).attr("pk"));
+     $('#del_url').attr('href', $(this).attr("url"));
+  });
+});
+</script>
+<style>
+table {
+  margin-top: 8px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="center">
+        <div class="page-header-left">
+            <h3><a href="{% url 'record:plant_list' %}">Back</a></h3>
+        </div>
+        <h2>Plant name: {{plant.plant_name}}</h2>
+        <div class="page-header-right">
+            <h4>ID:3452</h4>
+        </div>
+    </div>
+</div>
+<div class="main-content">
+    {# Canvas.jsのライブラリ使用#}
+    <div class="mainChart">
+        <img src="{% static "record/images/plant-center.png" %}" height="200px"/ class="chart-center">
+        <img src="{% static "record/images/meters-center.png" %}" height="200px"/ class="chart-center-meter">
+        <canvas id="mainChart" height="70px"></canvas>
+        <script>
+        var ctx = document.getElementById('mainChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: [{% for post in posts%} "{{post.id}}days", {% endfor %}],
+                datasets: [{
+                    label: "Plant height",
+                    borderColor: 'rgba(162, 205, 94,1.0)',
+                    data: [{% for post in posts %} {{post.plant_height}}, {% endfor %}],
+                }]
+            },
+
+            options: {
+                legend: {
+                    display:false,
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            display:false,
+                        },
+                        gridLines: {
+                            display:false,
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                          color: 'rgba(154,154,154,0.5)',
+                        },
+                        ticks: {
+                          fontSize: 20,
+                        }
+                    }],
+                }
+            }
+
+        });
+        </script>
+    </div>
+
+    <div class="subChart">
+      <div class="bottom-left">
+          <div class="lightChart-left">
+            <div class="center">
+                <h5>PMW</h5>
+                <img src="{% static "record/images/light.png" %}" width="90%"/>
+            </div>
+          </div>
+
+          <div class="lightChart">
+              <canvas id="lightChart" height="100px"></canvas>
+              <script>
+              var ctx = document.getElementById('lightChart').getContext('2d');
+              var chart = new Chart(ctx, {
+                  // The type of chart we want to create
+                  type: 'line',
+
+                  // The data for our dataset
+                  data: {
+                      labels: [0,2,4,6,8,10,12,14,16,18,20,22,24],
+                      datasets: [{
+                          label: "Light intensity",
+                          borderColor: 'rgba(256, 256, 0,1.0)',
+                          data: [0,0,0,5,9,9,10,10,10,8,3,0,0],
+                          lineTension: 0,
+                      }]
+                  },
+
+                  // Configuration options go here
+                  options: {
+                    legend: {
+                        display:false,
+                    },
+                    scales: {
+                      yAxes: [{
+                          ticks: {
+                              beginAtZero:true,
+                              display:false,
+                          },
+                          gridLines: {
+                              display:false,
+                          }
+                      }],
+                      xAxes: [{
+                          gridLines: {
+                            color: 'rgba(154,154,154,0.5)',
+                          },
+                      }],
+                    }
+                  }
+              });
+              </script>
+          </div>
+      </div>
+
+      <div class="bottom-right">
+        <div class="thermoChart-left">
+            <div class="center">
+                <br/>
+                <br/>
+                <br/>
+                <img src="{% static "record/images/thermometer.png" %}" width="90%"/>
+            </div>
+        </div>
+        <div class="thermoChart">
+            <canvas id="thermoChart" height="100px"></canvas>
+            <script>
+            var ctx = document.getElementById('thermoChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+                    labels: [0,2,4,6,8,10,12,14,16,18,20,22,24],
+                    datasets: [{
+                        label: "temprature",
+                        borderColor: 'rgba(255, 94, 25,1.0)',
+                        data: [15,16,16,20,25,25,28,29,26,20,18,15,15],
+                        lineTension: 0,
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                  legend: {
+                      display:false,
+                  },
+                  scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            display:false,
+                        },
+                        gridLines: {
+                            display:false,
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                          color: 'rgba(154,154,154,0.5)',
+                        },
+                    }],
+                  },
+                }
+            });
+            </script>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,74 @@
+{% extends 'record/base.html' %}
+{% load  static %}
+
+{% block title %}植物の一覧{% endblock title %}
+
+{% block extrahead %}
+<style>
+table {
+  margin-top: 8px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+{# ページヘッダー#}
+<div class="page-header">
+    <div class="center">
+        <div class="page-header-left">
+            <h3><a href="{% url 'record:index' %}">Top</a></h3>
+        </div>
+        <h2>Vegetable type</h2>
+        <div class="page-header-right">
+            <h4>ID:3452</h4>
+        </div>
+    </div>
+</div>
+
+<div class="main-content">
+    <table>
+        <thead>
+            <tr>
+                <th class="border-right-green">
+                    ID
+                </th>
+                <th class="border-right-green">
+                    name
+                </th>
+                <th class="border-right-green">
+                    memo
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for plant in plants%}
+            <tr>
+                <td class="border-right tbody-left-border" rowspan="2">
+                    <h2>{{ plant.id }}</h2>
+                </td>
+                <td class="border-right" rowspan="2">
+                    <h2>{{ plant.plant_name }}</h2>
+                </td>
+                <td class="border-right" rowspan="2" style="text-align:left; padding-left:10px; vertical-align:top;">
+                    <h3>{{ plant.plant_text }}</h3>
+                    <h4>--------------------------------------------</h4>
+                    <h4>--------------------------------------------</h4>
+                    <h4>--------------------------------------------</h4>
+                </td>
+                <td rowspan="2" class="tbody-right-border">
+                    <h3><a href="{% url 'record:post_list' plant_id=plant.id %}">詳細を見る</a> >></h3>
+                </td>
+                <td class="tbody-right">
+                    <a href="{% url 'record:plant_edit' plant_id=plant.id %}">修正</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="tbody-right">
+                    <a href="{% url 'record:plant_del' plant_id=plant.id %}">削除</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
